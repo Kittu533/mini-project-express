@@ -1,0 +1,15 @@
+{
+  "watch": [
+    "*.js",
+    "*.json"
+  ],
+  "ext": "js,json",
+  "ignore": [
+    "node_modules/**/*",
+    "migrations/**/*",
+    "seeders/**/*",
+    "dist/**/*",
+    "build/**/*"
+  ],
+  "delay": 1000
+}
