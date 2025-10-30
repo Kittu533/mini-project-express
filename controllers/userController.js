@@ -1,4 +1,5 @@
 const { User } = require('../models');
+const { Op } = require('sequelize');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 require('dotenv').config();
@@ -25,7 +26,12 @@ const register = async (req, res) => {
 
     // Cek apakah user sudah ada
     const existingUser = await User.findOne({
-      where: { $or: [{ username }, { email }] }
+      where: {
+        [Op.or]: [
+          { username: username },
+          { email: email }
+        ]
+      }
     });
 
     if (existingUser) {
